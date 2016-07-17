@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Тестовое задание</title>
+  <link rel="stylesheet" href="./main.css" media="screen" charset="utf-8">
+  <script type="text/javascript" src="./task1.js"></script>
+  <script type="text/javascript" src="./task2.js"></script>
+  <script type="text/javascript" src="./task3.js"></script>
+  <script type="text/javascript" src="./task4.js"></script>
+</head>
+<body>
+  <section class="container">
+    <h1>
+      Тестовое задание AppStockus
+    </h1>
+    <span class="info">
+      Инпуты исполняются через eval() без проверок. Функции доступны в консоли под именами sum, shift, reverse, lookandsay.
+    </span>
+    <h2>
+      Функция суммы <button type="button" id="f-sum-button">Запустить</button>
+    </h2>
+    <div class="viewblock">
+      <textarea class="input" id="f-sum" cols="30" rows="10" spellcheck="false">
+sum(1)(2)(3)(4)();
+      </textarea>
+    </div>
+    <div class="viewblock result" id="f-sum-result">
+
+    </div>
+    <h2>
+      Функция смещения элементов массива <button type="button" id="f-shift-button">Запустить</button>
+    </h2>
+    <div class="viewblock">
+      <textarea class="input" id="f-shift" cols="30" rows="10" spellcheck="false">
+var newArray = [1,2,3,4,5,6];
+shift(newArray, -1, 3);
+      </textarea>
+    </div>
+    <div class="viewblock result" id="f-shift-result">
+
+    </div>
+    <h2>
+      Функция обратного выведения значений односвязного списка <button type="button" id="f-reverse-button">Запустить</button>
+    </h2>
+    <div class="viewblock">
+      <textarea class="input" id="f-reverse" cols="30" rows="10" spellcheck="false">
+var someList = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+reverse(someList);
+      </textarea>
+    </div>
+    <div class="viewblock result" id="f-reverse-result">
+
+    </div>
+    <h2>
+      Функция look and say <button type="button" id="f-lookandsay-button">Запустить</button>
+    </h2>
+    <div class="viewblock">
+      <textarea class="input" id="f-lookandsay" cols="30" rows="10" spellcheck="false">
+var num = '1';
+var result = num;
+for (var i = 10; i > 0; i--) {
+  num = lookandsay(num);
+  result = result + '<br>' + num;
+}
+result;
+      </textarea>
+    </div>
+    <div class="viewblock result" id="f-lookandsay-result">
+
+    </div>
+  </section>
+  <script type="text/javascript">
+    function listener(name) {
+      document.getElementById('f-' + name + '-button').addEventListener('click', function () {
+        document.getElementById('f-' + name + '-result').innerHTML = eval(document.getElementById('f-' + name).value);
+      });
+      document.getElementById('f-' + name + '-button').dispatchEvent(new Event('click'));
+    };
+    listener('sum');
+    listener('shift');
+    listener('reverse');
+    listener('lookandsay');
+  </script>
+</body>
+</html>
